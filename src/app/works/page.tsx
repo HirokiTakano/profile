@@ -1,59 +1,83 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { Layers3 } from "lucide-react";
-import { BrandIcon } from "@/components/BrandIcon";
-import { ExternalLinkButton } from "@/components/ExternalLinkButton";
+import { WorksFeatureStrip } from "@/components/WorksFeatureStrip";
+import { WorksHero } from "@/components/WorksHero";
 import { WorksList } from "@/components/WorksList";
+import { WorksNews } from "@/components/WorksNews";
 import { profile } from "@/data/profile";
 
 export const metadata: Metadata = {
   title: "日常で使える便利ツール | Takano Hiroki",
-  description:
-    "ちょっと面倒をツールに任せてみよう",
+  description: "ちょっと面倒をツールに任せてみよう",
+  icons: {
+    icon: "/brand/Logo_Cleapas_mark_01.png",
+    apple: "/brand/Logo_Cleapas_mark_01.png",
+  },
 };
 
 export default function WorksPage() {
   return (
-    <main className="min-h-screen bg-[#fff8ef] px-4 py-8 text-stone-900 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <header className="rounded-[2rem] border border-orange-100 bg-[#fffdf9] px-8 py-8 shadow-[0_18px_50px_rgba(120,53,15,0.08)]">
-          <p className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-bold text-orange-800">
-            <Layers3 aria-hidden="true" className="h-4 w-4" />
-            便利ツール一覧
-          </p>
-          <h1 className="mt-5 max-w-3xl text-5xl font-black leading-tight text-stone-950">
-            日常で使える便利ツール
-          </h1>
-          <p className="mt-5 max-w-3xl text-lg leading-9 text-stone-700">
-            ちょっと面倒をツールに任せてみよう
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <ExternalLinkButton
-              ariaLabel="X を新しいタブで開きます"
-              href={profile.xUrl}
-              variant="warmSecondary"
-            >
-              <BrandIcon id="x" label="X" />
-              X
-            </ExternalLinkButton>
-            <ExternalLinkButton
-              ariaLabel="YouTube を新しいタブで開きます"
-              href={profile.youtubeUrl}
-              variant="warmSecondary"
-            >
-              <BrandIcon id="youtube" label="YouTube" />
-              YouTube
-            </ExternalLinkButton>
+    <main className="relative min-h-screen overflow-hidden bg-[#eefbfb] px-6 py-8 text-slate-900">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute left-[-120px] top-[-120px] h-80 w-80 rounded-full bg-cyan-200/45 blur-3xl" />
+        <div className="absolute right-[-100px] top-[240px] h-96 w-96 rounded-full bg-teal-200/50 blur-3xl" />
+        <div className="absolute bottom-[-140px] left-[35%] h-96 w-96 rounded-full bg-lime-100/60 blur-3xl" />
+      </div>
+      <div className="relative z-10 mx-auto w-[80%]">
+        <header className="mb-6 flex items-center justify-start">
+          <div className="h-24 w-24 overflow-hidden">
+            <Image
+              src="/brand/Logo_Cleapas_mark_01.png"
+              alt="CleaPas"
+              width={160}
+              height={160}
+              className="h-auto w-24"
+              priority
+            />
           </div>
         </header>
+        <WorksHero />
+        <WorksFeatureStrip />
         <WorksList />
-        <footer className="mt-12 border-t border-orange-100 pt-6 text-right">
-          <Link
-            className="text-sm font-medium text-stone-500 underline-offset-4 transition hover:text-teal-700 hover:underline focus:outline-none focus:ring-2 focus:ring-teal-300 focus:ring-offset-2 focus:ring-offset-[#fff8ef]"
-            href="/"
-          >
-            運営者プロフィール
-          </Link>
+        <WorksNews />
+        <footer className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-cyan-100 pt-6 text-sm text-slate-500">
+          <p>PC向け便利ツールを少しずつ追加しています。</p>
+          <div className="flex items-center gap-5">
+            {profile.xUrl ? (
+              <a
+                className="font-bold text-slate-600 underline-offset-4 transition hover:text-cyan-700 hover:underline focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2 focus:ring-offset-[#eefbfb]"
+                href={profile.xUrl}
+                rel="noreferrer"
+                target="_blank"
+              >
+                X
+              </a>
+            ) : null}
+            {profile.youtubeUrl ? (
+              <a
+                className="font-bold text-slate-600 underline-offset-4 transition hover:text-cyan-700 hover:underline focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2 focus:ring-offset-[#eefbfb]"
+                href={profile.youtubeUrl}
+                rel="noreferrer"
+                target="_blank"
+              >
+                YouTube
+              </a>
+            ) : (
+              <Link
+                className="font-bold text-slate-600 underline-offset-4 transition hover:text-cyan-700 hover:underline focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2 focus:ring-offset-[#eefbfb]"
+                href="/#youtube"
+              >
+                YouTube
+              </Link>
+            )}
+            <Link
+              className="font-bold text-slate-600 underline-offset-4 transition hover:text-cyan-700 hover:underline focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2 focus:ring-offset-[#eefbfb]"
+              href="/"
+            >
+              プロフィール
+            </Link>
+          </div>
         </footer>
       </div>
     </main>
