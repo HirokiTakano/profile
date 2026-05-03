@@ -66,7 +66,7 @@ export const projects: Project[] = [
     technicalSummary: "Windows 向けのユーティリティとして、GitHub Release から配布しています。",
     iconImageUrl: "/projects/pcdetailcheck.png",
     githubUrl: "https://github.com/HirokiTakano/PCDetailCheck",
-    demoUrl: null,
+    demoUrl: "https://github.com/HirokiTakano/PCDetailCheck/releases",
     tags: ["Windows", "ユーティリティ", "PC 確認", "GitHub リリース"],
     primaryActionLabel: "ダウンロードページを見る",
     secondaryActionLabel: "開発情報を見る",
