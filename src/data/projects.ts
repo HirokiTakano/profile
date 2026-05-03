@@ -64,6 +64,7 @@ export const projects: Project[] = [
       "自分のPC情報を確認し、相談やサポート時に相手へ伝えやすくするツールです。",
     userBenefit: "自分のPC情報を調べたい時や、相手に状況を伝えたい時に役立ちます。",
     technicalSummary: "Windows 向けのユーティリティとして、GitHub Release から配布しています。",
+    iconImageUrl: "/projects/pcdetailcheck.png",
     githubUrl: "https://github.com/HirokiTakano/PCDetailCheck",
     demoUrl: null,
     tags: ["Windows", "ユーティリティ", "PC 確認", "GitHub リリース"],
