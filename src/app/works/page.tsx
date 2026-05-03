@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Layers3 } from "lucide-react";
+import { BrandIcon } from "@/components/BrandIcon";
+import { ExternalLinkButton } from "@/components/ExternalLinkButton";
 import { WorksList } from "@/components/WorksList";
+import { profile } from "@/data/profile";
 
 export const metadata: Metadata = {
   title: "日常で使える便利ツール | Takano Hiroki",
   description:
-    "メモ、PC確認、作業補助など、難しい知識がなくても使いやすい便利ツールをまとめています。",
+    "ちょっと面倒をツールに任せてみよう",
 };
 
 export default function WorksPage() {
@@ -22,8 +25,26 @@ export default function WorksPage() {
             日常で使える便利ツール
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-9 text-stone-700">
-            メモやPC確認など、目的に合わせてすぐ開ける小さなアプリをまとめています。
+            ちょっと面倒をツールに任せてみよう
           </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <ExternalLinkButton
+              ariaLabel="X を新しいタブで開きます"
+              href={profile.xUrl}
+              variant="warmSecondary"
+            >
+              <BrandIcon id="x" label="X" />
+              X
+            </ExternalLinkButton>
+            <ExternalLinkButton
+              ariaLabel="YouTube を新しいタブで開きます"
+              href={profile.youtubeUrl}
+              variant="warmSecondary"
+            >
+              <BrandIcon id="youtube" label="YouTube" />
+              YouTube
+            </ExternalLinkButton>
+          </div>
         </header>
         <WorksList />
         <footer className="mt-12 border-t border-orange-100 pt-6 text-right">

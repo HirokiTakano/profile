@@ -54,6 +54,18 @@ public/           公開静的ファイル
 docs/             運用・デプロイメモ
 ```
 
+## プロフィールアイコン画像
+
+トップに表示する自分のアイコン画像は `public/profile/icon.png` に配置します。
+
+サイト側では `src/data/profile.ts` の `profile.avatarImageUrl` で画像パスを管理しています。
+
+```ts
+avatarImageUrl: "/profile/icon.png",
+```
+
+`public/profile/icon.png` が存在する場合はトップの名前付近に画像を表示します。画像が未配置、または読み込みに失敗した場合は初期アイコンを表示します。
+
 ## 資格バッジ画像
 
 資格カードは `src/data/profile.ts` の `certifications` で管理しています。

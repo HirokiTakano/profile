@@ -1,15 +1,15 @@
 "use client";
 
+import { certifications, type Certification } from "@/data/profile";
+import { cn } from "@/lib/utils";
+import { BrainCircuit, Cloud, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import { ChangeEvent, useEffect, useMemo, useState } from "react";
-import { BrainCircuit, Cloud, ShieldCheck } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { certifications, type Certification } from "@/data/profile";
 
 const categories = [
   { id: "all", label: "すべて" },
   { id: "aws", label: "AWS" },
-  { id: "it", label: "IT基礎" },
+  { id: "it", label: "IPA" },
 ] as const;
 
 const certificationIcons = {
@@ -47,14 +47,18 @@ export function CertificationGrid() {
 
   useEffect(() => {
     setBadgeOverrides(readBadgeOverrides());
-    setIsEditorVisible(new URLSearchParams(window.location.search).get("edit") === "badges");
+    setIsEditorVisible(
+      new URLSearchParams(window.location.search).get("edit") === "badges",
+    );
   }, []);
 
   const visibleCertifications = useMemo(
     () =>
       activeCategory === "all"
         ? certifications
-        : certifications.filter((certification) => certification.category === activeCategory),
+        : certifications.filter(
+            (certification) => certification.category === activeCategory,
+          ),
     [activeCategory],
   );
 
@@ -72,7 +76,10 @@ export function CertificationGrid() {
     window.localStorage.setItem(storageKey, JSON.stringify(nextOverrides));
   }
 
-  function handleBadgeUpload(certificationId: string, event: ChangeEvent<HTMLInputElement>) {
+  function handleBadgeUpload(
+    certificationId: string,
+    event: ChangeEvent<HTMLInputElement>,
+  ) {
     const file = event.target.files?.[0];
 
     if (!file) {
@@ -95,7 +102,8 @@ export function CertificationGrid() {
           <button
             className={cn(
               "min-h-10 rounded-md px-4 text-sm font-bold text-slate-300 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-300",
-              activeCategory === category.id && "bg-cyan-300 text-slate-950 hover:text-slate-950",
+              activeCategory === category.id &&
+                "bg-cyan-300 text-slate-950 hover:text-slate-950",
             )}
             key={category.id}
             onClick={() => setActiveCategory(category.id)}
@@ -107,7 +115,10 @@ export function CertificationGrid() {
       </div>
       <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
         {visibleCertifications.map((certification) => {
-          const Icon = certificationIcons[certification.id as keyof typeof certificationIcons];
+          const Icon =
+            certificationIcons[
+              certification.id as keyof typeof certificationIcons
+            ];
           const badgeUrl = getBadgeUrl(certification, badgeOverrides);
 
           return (
@@ -149,14 +160,22 @@ export function CertificationGrid() {
           </p>
           <div className="mt-4 grid gap-4">
             {certifications.map((certification) => (
-              <div className="rounded-lg border border-slate-700 bg-slate-950/65 p-4" key={certification.id}>
-                <label className="text-sm font-bold text-white" htmlFor={`${certification.id}-badge-url`}>
+              <div
+                className="rounded-lg border border-slate-700 bg-slate-950/65 p-4"
+                key={certification.id}
+              >
+                <label
+                  className="text-sm font-bold text-white"
+                  htmlFor={`${certification.id}-badge-url`}
+                >
                   {certification.shortName}
                 </label>
                 <input
                   className="mt-2 w-full rounded-md border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-100 outline-none focus:border-cyan-300"
                   id={`${certification.id}-badge-url`}
-                  onChange={(event) => updateBadgeUrl(certification.id, event.target.value)}
+                  onChange={(event) =>
+                    updateBadgeUrl(certification.id, event.target.value)
+                  }
                   placeholder="/certifications/example.png または https://..."
                   type="url"
                   value={badgeOverrides[certification.id] ?? ""}
@@ -164,7 +183,9 @@ export function CertificationGrid() {
                 <input
                   accept="image/*"
                   className="mt-3 block w-full text-sm text-slate-300 file:mr-3 file:rounded-md file:border-0 file:bg-cyan-300 file:px-3 file:py-2 file:text-sm file:font-bold file:text-slate-950"
-                  onChange={(event) => handleBadgeUpload(certification.id, event)}
+                  onChange={(event) =>
+                    handleBadgeUpload(certification.id, event)
+                  }
                   type="file"
                 />
               </div>
