@@ -6,10 +6,8 @@ import { cn } from "@/lib/utils";
 const tabs = [
   { id: "home", label: "ホーム", href: "#home" },
   { id: "about", label: "自己紹介", href: "#about" },
-  { id: "works", label: "制作物", href: "/works", external: true },
   { id: "zenn", label: "Zenn", href: "#zenn" },
   { id: "youtube", label: "YouTube", href: "#youtube" },
-  { id: "links", label: "リンク", href: "#links" },
 ];
 
 type TabNavigationProps = {
@@ -28,8 +26,6 @@ export function TabNavigation({ activeSection }: TabNavigationProps) {
               activeSection === tab.id && "text-white",
             )}
             href={tab.href}
-            rel={tab.external ? "noopener noreferrer" : undefined}
-            target={tab.external ? "_blank" : undefined}
           >
             {activeSection === tab.id ? (
               <motion.span
