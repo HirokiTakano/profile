@@ -16,9 +16,10 @@ export type Certification = {
 
 export const profile = {
   name: "Takano Hiroki",
-  role: "インフラエンジニア / クラウド・OSS 開発",
-  shortRole: "インフラエンジニア / クラウド・OSS ビルダー",
+  role: "インフラエンジニア",
+  shortRole: "インフラエンジニア",
   location: "日本",
+  avatarImageUrl: "/profile/icon.png",
   heroSummary:
     "思考整理、情報共有、日々の技術作業を少し速くする軽量なツールを作っています。",
   githubUrl: "https://github.com/HirokiTakano",
@@ -86,5 +87,6 @@ export const certifications: Certification[] = [
     name: "ITパスポート",
     shortName: "IT Passport",
     category: "it",
+    badgeImageUrl: "/certifications/ITpass.png",
   },
 ];
