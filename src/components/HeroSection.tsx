@@ -35,8 +35,6 @@ export function HeroSection() {
             <a
               className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-cyan-300/70 bg-cyan-300 px-5 py-3 text-sm font-bold text-slate-950 shadow-glow transition hover:-translate-y-0.5 hover:bg-sky-200 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2 focus:ring-offset-slate-950"
               href="/works"
-              rel="noopener noreferrer"
-              target="_blank"
             >
               <Layers aria-hidden="true" className="h-4 w-4" />
               制作物を見る

@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 const tabs = [
   { id: "home", label: "ホーム", href: "#home" },
   { id: "about", label: "自己紹介", href: "#about" },
+  { id: "works", label: "制作物", href: "/works" },
   { id: "zenn", label: "Zenn", href: "#zenn" },
   { id: "youtube", label: "YouTube", href: "#youtube" },
 ];
