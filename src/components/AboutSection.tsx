@@ -9,8 +9,8 @@ export function AboutSection() {
     <section id="about" className="scroll-mt-28 px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionTitle
-          eyebrow="自己紹介"
-          title="プロフィールと保有資格"
+          eyebrow="プロフィール"
+          title="技術領域と保有資格"
           description="制作物、技術発信、保有資格を通して、どのような領域で活動しているかをまとめています。"
         />
         <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
@@ -24,14 +24,10 @@ export function AboutSection() {
               <MapPin aria-hidden="true" className="h-4 w-4 text-cyan-300" />
               {profile.location}
             </p>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            <div className="mt-6 grid gap-3">
               <div className="rounded-lg border border-cyan-300/25 bg-cyan-300/10 p-4">
                 <p className="text-sm font-semibold text-cyan-200">公開中の制作物</p>
                 <p className="mt-1 text-2xl font-black text-white">2件</p>
-              </div>
-              <div className="rounded-lg border border-violet-300/25 bg-violet-300/10 p-4">
-                <p className="text-sm font-semibold text-violet-200">技術記事</p>
-                <p className="mt-1 text-2xl font-black text-white">Zenn連携</p>
               </div>
             </div>
             <div className="mt-7 flex flex-wrap gap-3">

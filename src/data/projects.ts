@@ -7,6 +7,7 @@ export type Project = {
   userDescription: string;
   userBenefit: string;
   technicalSummary: string;
+  iconImageUrl?: string;
   githubUrl?: string;
   demoUrl?: string | null;
   tags: string[];
@@ -35,6 +36,7 @@ export const projects: Project[] = [
       "思いついたことをすぐに書き出して、あとから整理しやすくするメモアプリです。",
     userBenefit: "アイデア整理、文章の下書き、作業メモに使えます。",
     technicalSummary: "TypeScript で構築した、キーボード操作を重視した OSS Web アプリです。",
+    iconImageUrl: "/projects/thinkspeed.png",
     githubUrl: "https://github.com/HirokiTakano/ThinkSpeed",
     demoUrl: "https://main.d3fxprpy7h64o7.amplifyapp.com/",
     tags: ["アウトライナー", "生産性", "OSS", "TypeScript"],

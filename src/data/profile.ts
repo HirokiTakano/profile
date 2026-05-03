@@ -63,9 +63,7 @@ export const skills = [
   "Linux",
   "インフラ",
   "自動化",
-  "TypeScript",
-  "OSS 開発",
-  "技術発信",
+  "Codex",
 ];
 
 export const certifications: Certification[] = [
